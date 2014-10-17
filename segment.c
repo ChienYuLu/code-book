@@ -36,7 +36,7 @@ int query(int L, int R, int x, int y, int t)
 	} else {
 		int M = (L+R) / 2;
 		if (lazy[t] != 0)
-			down(L, R, M, t);
+			down(L, R, M, t); //push down
 		int a = query(L, M, x, y, t*2);
 		int b = query(M, R, x, y, t*2+1);
 		
@@ -54,10 +54,11 @@ void update(int L, int R, int x, int y, int value, int t)
 	} else {
 		int M = (L+R) / 2;
 		if (lazy[t] != 0)
-			down(L, R, M, t);
+			down(L, R, M, t); //push down
 		update(L, M, x, y, value, t*2);
 		update(M, R, x, y, value, t*2+1);
-		tree[t] = tree[t*2] + tree[t*2+1];
+
+		tree[t] = tree[t*2] + tree[t*2+1]; //update upward
 	}
 }
 
