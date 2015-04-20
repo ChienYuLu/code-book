@@ -5,6 +5,10 @@
 #include <algorithm>
 using namespace std;
 
+// adj matrix
+// 1 is start
+// m is end
+
 long long adj[210][210];
 int pre[210];
 long long vst[210];
